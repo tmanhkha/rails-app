@@ -1,0 +1,19 @@
+<% @data.each do |item|%>
+  <section>
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6 <%= cycle("order-lg-2", "", name: "image") %>">
+          <div class="p-5">
+            <%= image_tag item[:image], class: "img-fluid rounded-circle" %>
+          </div>
+        </div>
+        <div class="col-lg-6 <%= cycle("order-lg-1", "", name: "content") %>">
+          <div class="p-5">
+            <h2 class="display-4"><%= item[:title] %></h2>
+            <p><%= item[:content] %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+<% end %>
