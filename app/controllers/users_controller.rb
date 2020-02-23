@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_action :authentica_user, only: [:new, :edit]
+  before_action :authentica_user, only: [:new]
+  before_action :require_login, only: [:show, :edit, :update, :destroy]
 
   # GET /users
   # GET /users.json
@@ -77,6 +78,13 @@ class UsersController < ApplicationController
       if logged_in?
         flash[:alert] = "You have already sign in"
         redirect_to root_path
+      end
+    end
+
+    def require_login
+      unless logged_in?
+        flash[:alert] = "Please sign in"
+        redirect_to login_path
       end
     end
 end
