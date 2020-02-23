@@ -113,19 +113,6 @@ header.masthead {
   background-color: #ee0979 !important;
 }
 
-.btn-primary {
-  background-color: #ee0979;
-  border-color: #ee0979;
-
-  &:focus {
-    box-shadow: 0 0 0 0.2rem rgba(238, 9, 121, 0.5);
-  }
-
-  &:active, &:focus, &:hover {
-    background-color: #bd0760 !important;
-    border-color: #bd0760 !important;
-  }
-}
 
 .btn-secondary {
   background-color: #ff6a00;

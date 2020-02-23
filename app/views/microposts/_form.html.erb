@@ -12,16 +12,14 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :content %>
-    <%= form.text_area :content %>
+    <%= form.text_field :title, class: "form-control mb-4", placeholder: "Title" %>
   </div>
 
   <div class="field">
-    <%= form.label :user_id %>
-    <%= form.number_field :user_id %>
+    <%= form.text_area :content, class: "form-control mb-4", placeholder: "Content" %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Save", class: "btn btn-info btn-block my-4" %>
   </div>
 <% end %>

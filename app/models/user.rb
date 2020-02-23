@@ -7,4 +7,6 @@ class User < ApplicationRecord
                     uniqueness: true
   
   has_secure_password
+
+  has_many :microposts, dependent: :destroy
 end

@@ -1,4 +1,5 @@
 class MicropostsController < ApplicationController
+  before_action :authentica_user, only: [:new, :create, :edit, :update, :destroy]
   before_action :set_micropost, only: [:show, :edit, :update, :destroy]
 
   # GET /microposts
@@ -14,7 +15,7 @@ class MicropostsController < ApplicationController
 
   # GET /microposts/new
   def new
-    @micropost = Micropost.new
+    @micropost = current_user.microposts.new
   end
 
   # GET /microposts/1/edit
@@ -24,7 +25,7 @@ class MicropostsController < ApplicationController
   # POST /microposts
   # POST /microposts.json
   def create
-    @micropost = Micropost.new(micropost_params)
+    @micropost = current_user.microposts.new(micropost_params)
 
     respond_to do |format|
       if @micropost.save
@@ -67,8 +68,15 @@ class MicropostsController < ApplicationController
       @micropost = Micropost.find(params[:id])
     end
 
+    def authentica_user
+      unless logged_in?
+        flash[:alert] = "Please sign in"
+        redirect_to login_path
+      end
+    end
+
     # Only allow a list of trusted parameters through.
     def micropost_params
-      params.require(:micropost).permit(:content, :user_id)
+      params.require(:micropost).permit(:title, :content, :user_id)
     end
 end

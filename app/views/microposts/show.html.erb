@@ -1,12 +1,13 @@
-<p>
-  <strong>Content:</strong>
-  <%= @micropost.content %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @micropost.user_id %>
-</p>
-
-<%= link_to 'Edit', edit_micropost_path(@micropost) %> |
-<%= link_to 'Back', microposts_path %>
+<div class="container">
+  <div class="card">
+    <div class="card-header">
+      Post detail
+    </div>
+    <div class="card-body">
+      <h5 class="card-title"><%= @micropost.title %></h5>
+      <p class="card-text"><%= @micropost.content %></p>
+      <%= link_to 'Edit', edit_micropost_path(@micropost) %> |
+      <%= link_to 'Back', microposts_path %>
+    </div>
+  </div>
+</div>

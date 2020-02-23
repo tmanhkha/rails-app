@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :authentica_user, only: [:new, :edit]
 
   # GET /users
   # GET /users.json
@@ -70,5 +71,12 @@ class UsersController < ApplicationController
     # Only allow a list of trusted parameters through.
     def user_params
       params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    end
+
+    def authentica_user
+      if logged_in?
+        flash[:alert] = "You have already sign in"
+        redirect_to root_path
+      end
     end
 end
