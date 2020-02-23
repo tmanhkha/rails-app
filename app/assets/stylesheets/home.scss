@@ -140,3 +140,17 @@ header.masthead {
     border-color: #cc5500 !important;
   }
 }
+
+.notification {
+  margin-bottom: 0 !important;
+
+	&.alert {
+		z-index: 2000;
+		position: fixed;
+		padding: 0.5rem 1rem;
+		width: 100%;
+	}
+  p {
+    margin-bottom: 0 !important;
+  }
+}
