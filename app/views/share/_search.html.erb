@@ -1,0 +1,10 @@
+<%= form_for :search, url: search_index_path, html: {id: "search_form", method: :get} do |f| %>
+  <div class="container serach">
+    <div class="input-group md-form form-sm form-2">
+      <input class="form-control my-0 py-1 amber-border" type="text" placeholder="Search..." name="search_term" value="<%= @search_term %>">
+      <div class="input-group-append" id="form_search_submit_button">
+        <span class="input-group-text amber lighten-3"><i class="fa fa-search"></i></span>
+      </div>
+    </div>
+  </div>
+<% end %>

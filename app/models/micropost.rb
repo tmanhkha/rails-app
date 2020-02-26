@@ -9,4 +9,8 @@ class Micropost < ApplicationRecord
   def should_generate_new_friendly_id?
     title_changed? || super
   end
+
+  def short_content
+    content.size > 255 ? content[0..254] + '...'  : content 
+  end
 end
