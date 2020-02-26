@@ -22,3 +22,10 @@ window.setTimeout(function() {
       $(this).remove(); 
   });
 }, 2000);
+
+$(document).on('ready turbolinks:load', function() {
+  $("#form_search_submit_button").click(function(e) {
+    $("#search_form").submit();
+    e.preventDefault()
+  })
+})

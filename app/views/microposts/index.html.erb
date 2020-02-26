@@ -13,9 +13,9 @@
     <tbody>
       <% @microposts.each do |micropost| %>
         <tr>
-          <td><%= micropost.title %></td>
+          <td width="25%"><%= micropost.title %></td>
           <td><%= micropost.content %></td>
-          <td>
+          <td width="20%">
             <%= link_to 'Show', micropost, class: 'btn btn-primary btn-sm' %>
             <% if authentica_micropost?(micropost) %>
               <%= link_to 'Edit', edit_micropost_path(micropost), class: 'btn btn-primary btn-sm' %>
