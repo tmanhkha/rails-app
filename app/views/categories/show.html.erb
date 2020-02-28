@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="card">
+    <div class="card-header">
+      Category detail
+    </div>
+    <div class="card-body">
+      <h5 class="card-title"><%= @category.title %></h5>
+      <%= link_to 'Edit', edit_category_path(@category) %> |
+      <%= link_to 'Back', categories_path %>
+    </div>
+  </div>
+</div>
