@@ -28,6 +28,9 @@
   </table>
 
   <br>
+  <div class="text-center">
+    <%= paginate @microposts, theme: "twitter-bootstrap-4", pagination_class: "pagination-sm",  nav_class: "d-inline-b" %>
+  </div>
 
   <%= link_to 'New Micropost', new_micropost_path, class: 'btn btn-primary' %>
 
