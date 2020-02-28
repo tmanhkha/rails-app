@@ -1,3 +1,6 @@
+require 'benchmark'
+require 'bcrypt'
+
 namespace :create_data do
   desc "create admin"
   task admin: :environment do
@@ -9,12 +12,34 @@ namespace :create_data do
   end
 
   task user: :environment do
-    1000.times do |t|
-      User.create!(name: "test #{t}",
-                  email: "test#{t}@gmail.com",
-                  password: '12345678')
+    # ~ 3 minutes
+    time = Benchmark.measure do
+      1000.times do |t|
+        User.create!(name: "test #{t}",
+                    email: "test#{t}@gmail.com",
+                    password: '12345678')
+      end
     end
 
-    puts '=======> success'
+    puts "=======> success #{time}"
+  end
+
+  task user_optimize: :environment do
+    # ~ 0,5 seconds
+    time = Benchmark.measure do
+      password = BCrypt::Password.create('12345678')
+      data = 1000.times.map do |t|
+        { 
+          name: "test #{t}",
+          email: "test#{t}@gmail.com",
+          password_digest: password,
+          created_at: Time.now, 
+          updated_at: Time.now
+        }
+      end
+      User.insert_all(data)
+
+    end
+    puts "=======> success #{time}"
   end
 end
