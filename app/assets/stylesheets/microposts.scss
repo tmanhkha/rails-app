@@ -1,3 +1,7 @@
 // Place all the styles related to the Microposts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+select#micropost_category_id {
+  border: 1px solid #e0e0e0;
+}

@@ -6,6 +6,7 @@
       <tr>
         <th>Title</th>
         <th>Content</th>
+        <th>Category</th>
         <th>Action</th>
       </tr>
     </thead>
@@ -15,6 +16,7 @@
         <tr>
           <td width="25%"><%= micropost.title %></td>
           <td><%= micropost.content %></td>
+          <td><%= micropost.category&.title %></td>
           <td width="20%">
             <%= link_to 'Show', micropost, class: 'btn btn-primary btn-sm' %>
             <% if authentica_micropost?(micropost) %>
